@@ -1,27 +1,16 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { FaGithubAlt } from 'react-icons/fa6';
-
+import { fetchGithubUser } from '../api/github';
 const UserFetch = () => {
   const [username, setUsername] = useState('');
   const [submittedUsername, setSubmittedUsername] = useState('');
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['users', submittedUsername],
-    queryFn: async () => {
-      const res = await fetch(
-        `${import.meta.env.VITE_GITHUB_API_URL}/users/${submittedUsername}`
-      );
-      if (!res.ok) {
-        throw new Error('User not found');
-      }
-      const data = await res.json();
-        return data;
-        
-        
-      },
-      enabled: !!submittedUsername
+      queryFn: ()=> fetchGithubUser(submittedUsername),
+      enabled: !!submittedUsername,
   });
-    console.log(data);
+    
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       setSubmittedUsername(username.trim());
