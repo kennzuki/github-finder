@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { FaGithubAlt } from 'react-icons/fa6';
+
 import { fetchGithubUser } from '../api/github';
+import UserCard from './UserCard';
 const UserFetch = () => {
   const [username, setUsername] = useState('');
   const [submittedUsername, setSubmittedUsername] = useState('');
@@ -33,21 +34,7 @@ const UserFetch = () => {
           {isLoading && <p>Loading...</p>}
           {isError && <p>{error.message}</p>}
           {data && (
-              <div className="flex flex-col items-center space-y-4 text-center mt-6">
-                  <img
-                      src={data.avatar_url}
-                      alt={data.login}
-                      className='w-32 h-32 rounded-full mb-4'
-                  />
-                  <h2 className='text-2xl font-bold mb-2'>{data.name || data.login}</h2>
-                  <a href={data.html_url} target='_blank' rel='noopener noreferrer' className='text-2xl bg-black text-white rounded-xl px-3 py-2 font-bold mb-2 flex place-items-center p-2'>
-                      <FaGithubAlt className='mr-2' />
-                      View Profile</a>
-                  <p className='text-gray-600 mb-4'>{data.bio}</p>
-                  <p className='text-gray-600 mb-4 text-center'>{data.location}</p>
-                  <p className='text-gray-600 mb-4'>{data.company}</p>
-                  <p className='text-gray-600 mb-4'>{data.email}</p>
-              </div>)}
+              <UserCard user={data} />)}
     </div>
   );
 };
