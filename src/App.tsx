@@ -5,8 +5,8 @@ const App = () => {
   
   return (
    
-    <div className='max-w-4xl flex flex-col mx-auto items-center border border-gray-200 p-16'>
-      <h1 className='text3xl font-bold mt-12'>Github Finder</h1>
+    <div className='max-w-4xl flex flex-col mx-auto items-center p-16'>
+      <h1 className='text3xl font-bold mb-6'>Github Finder</h1>
       <UserFetch />
     </div>
   );
