@@ -4,7 +4,7 @@ import type { GithubUser } from '../type';
 
 const UserCard = ({ user }: { user: GithubUser }) => {
     return ( 
-        <div className="flex flex-col items-center space-y-4 text-center mt-6">
+        <div className="flex flex-col items-center space-y-4 text-center mt-6 bg-gray-100 rounded shadow mb-4 p-4">
                   <img
                       src={user.avatar_url}
                       alt={user.login}
@@ -14,7 +14,7 @@ const UserCard = ({ user }: { user: GithubUser }) => {
                   <a href={user.html_url} target='_blank' rel='noopener noreferrer' className='text-2xl bg-black text-white rounded-xl px-3 py-2 font-bold mb-2 flex place-items-center p-2'>
                       <FaGithubAlt className='mr-2' />
                       View Profile</a>
-                  <p className='text-gray-600 mb-4'>{user.bio}</p>
+                  <p className='text-gray-600 mb-4 w-1/2'>{user.bio}</p>
                   <p className='text-gray-600 mb-4 text-center'>{user.location}</p>
                   <p className='text-gray-600 mb-4'>{user.company}</p>
                   <p className='text-gray-600 mb-4'>{user.email}</p>
