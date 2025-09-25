@@ -33,13 +33,13 @@ const UserFetch = () => {
         <input
           type='text'
           value={username}
-          className='border border-gray-200 rounded shadow py-2 px-3 m-4'
+          className='border border-gray-200 rounded shadow py-2 px-3 m-4 w-full'
           placeholder='username'
           onChange={(e) => setUsername(e.target.value)}
         />
         <button
           type='submit'
-          className='py-2 px-3 rounded shadow bg-blue-500 text-white'
+          className='py-2 px-3 rounded shadow bg-blue-500 text-white w-full'
         >
           search
         </button>
